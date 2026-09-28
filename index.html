@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnerVolt · Asesoría energética gratuita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0B1626',
+          ink2: '#122236',
+          ember: '#F5A524',
+          emberd: '#D98B0E',
+          leaf: '#12967A'
+        },
+        fontFamily: {
+          heading: ['Poppins','sans-serif'],
+          sans: ['Inter','sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white text-ink antialiased">
+<!-- NAV -->
+<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <a href="#inicio" class="flex items-center gap-2 font-heading font-bold text-xl">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="#F5A524"/></svg>
+      <span class="text-white">Ener<span class="text-ember">Volt</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#problema" class="text-white/90 hover:text-ember transition">El problema</a>
+      <a href="#beneficios" class="text-white/90 hover:text-ember transition">Beneficios</a>
+      <a href="#proceso" class="text-white/90 hover:text-ember transition">Cómo funciona</a>
+      <a href="#faq" class="text-white/90 hover:text-ember transition">Preguntas</a>
+    </div>
+    <a href="#contacto" class="hidden md:inline-flex items-center gap-2 bg-ember hover:bg-emberd text-ink font-semibold text-sm px-5 py-2.5 rounded-full transition">
+      Consulta gratuita
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button id="menuBtn" class="md:hidden text-white">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="md:hidden hidden bg-ink2 px-6 py-4 flex flex-col gap-4 text-white/90">
+    <a href="#problema" class="mob-link">El problema</a>
+    <a href="#beneficios" class="mob-link">Beneficios</a>
+    <a href="#proceso" class="mob-link">Cómo funciona</a>
+    <a href="#faq" class="mob-link">Preguntas</a>
+    <a href="#contacto" class="mob-link bg-ember text-ink text-center font-semibold py-2.5 rounded-full">Consulta gratuita</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="relative bg-ink text-white pt-32 pb-24 md:pb-32 diag-bottom overflow-hidden">
+  <div class="absolute inset-0 noise opacity-40"></div>
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-ember/10 rounded-full blur-3xl"></div>
+  <div class="max-w-7xl mx-auto px-6 relative grid md:grid-cols-2 gap-12 items-center">
+    <div class="reveal">
+      <span class="inline-flex items-center gap-2 bg-white/10 text-ember text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+        <span class="w-2 h-2 bg-leaf rounded-full"></span> Disponible en toda España
+      </span>
+      <h1 class="font-heading font-bold text-4xl md:text-5xl leading-tight mb-5">
+        Paga solo por la energía que <span class="text-ember">realmente necesitas.</span>
+      </h1>
+      <p class="text-white/70 text-lg mb-8 max-w-lg">
+        Analizamos tu factura de luz y gas y te decimos, con datos reales, cuánto puedes ahorrar al mes. Sin letra pequeña, sin compromiso de permanencia.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-10">
+        <a href="#contacto" class="bg-ember hover:bg-emberd text-ink font-semibold px-6 py-3.5 rounded-full transition flex items-center gap-2">
+          Quiero mi revisión gratuita
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#proceso" class="border border-white/20 hover:border-ember text-white px-6 py-3.5 rounded-full transition">Ver cómo funciona</a>
+      </div>
+      <div class="grid grid-cols-3 gap-6 max-w-md" id="statsBox">
+        <div><p class="font-heading font-bold text-2xl text-ember"><span data-count="2400">0</span>+</p><p class="text-white/50 text-xs">Revisiones hechas</p></div>
+        <div><p class="font-heading font-bold text-2xl text-ember"><span data-count="22">0</span>%</p><p class="text-white/50 text-xs">Ahorro medio</p></div>
+        <div><p class="font-heading font-bold text-2xl text-ember"><span data-count="48">0</span>h</p><p class="text-white/50 text-xs">Primera respuesta</p></div>
+      </div>
+    </div>
+
+    <!-- Ilustración + Recibo animado -->
+    <div class="reveal relative flex justify-center pb-6 md:pb-0">
+      <svg viewBox="0 0 420 380" class="w-full max-w-md drop-shadow-2xl">
+        <ellipse cx="210" cy="350" rx="150" ry="18" fill="#000" opacity="0.25"/>
+        <rect x="70" y="150" width="220" height="170" rx="6" fill="#132339"/>
+        <polygon points="60,150 210,60 360,150" fill="#F5A524"/>
+        <rect x="95" y="90" width="130" height="10" fill="#0B1626" opacity="0.3"/>
+        <rect x="105" y="205" width="55" height="55" rx="4" fill="#0B1626"/>
+        <rect x="200" y="205" width="55" height="55" rx="4" fill="#0B1626"/>
+        <rect x="175" y="270" width="40" height="50" fill="#0B1626"/>
+        <rect x="105" y="120" width="130" height="14" fill="#12967A" rx="2"/>
+        <rect x="110" y="123" width="18" height="8" fill="#0f7a63"/>
+        <rect x="133" y="123" width="18" height="8" fill="#0f7a63"/>
+        <rect x="156" y="123" width="18" height="8" fill="#0f7a63"/>
+        <rect x="179" y="123" width="18" height="8" fill="#0f7a63"/>
+        <rect x="202" y="123" width="18" height="8" fill="#0f7a63"/>
+        <path d="M340 130 L318 170 L336 170 L312 215 L360 165 L340 165 Z" fill="#F5A524"/>
+        <circle cx="345" cy="100" r="26" fill="none" stroke="#F5A524" stroke-width="3" opacity="0.5"/>
+        <circle cx="345" cy="100" r="10" fill="#F5A524"/>
+      </svg>
+
+      <!-- Mini recibo de luz animado -->
+      <div id="receiptCard" class="receipt-card absolute bottom-2 left-2 md:-left-6 bg-white text-ink rounded-xl shadow-2xl p-4 w-48 z-10">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-[10px] font-bold text-ink/40 uppercase tracking-wide">Factura luz</span>
+          <svg class="pulse-bolt" width="16" height="16" viewBox="0 0 24 24" fill="#F5A524"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+        </div>
+        <div class="space-y-1.5 text-[11px] text-ink/60 border-b border-dashed border-ink/15 pb-2.5 mb-2.5">
+          <div class="flex justify-between"><span>Potencia 4.6 kW</span><span>8,25€</span></div>
+          <div class="flex justify-between"><span>Consumo 250 kWh</span><span>37,00€</span></div>
+          <div class="flex justify-between"><span>IVA + Imp. eléc.</span><span>13,15€</span></div>
+        </div>
+        <div class="flex items-end justify-between">
+          <span class="text-[11px] text-ink/40 line-through">58,40€</span>
+          <span id="receiptTotal" class="font-heading font-bold text-leaf text-xl" data-target="45.60">0,00€</span>
+        </div>
+        <span class="block text-[10px] text-leaf font-semibold mt-1.5 bg-leaf/10 rounded-full px-2 py-0.5 text-center">-22% con EnerVolt ✓</span>
+        <p class="text-[8px] text-ink/30 mt-1.5 text-center leading-tight">*Referencia tarifa PVPC media España</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema" class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl mb-14 reveal">
+      <span class="text-ember font-semibold text-sm tracking-wide uppercase">El problema</span>
+      <h2 class="font-heading font-bold text-3xl md:text-4xl mt-2 mb-4">¿Te suena familiar?</h2>
+      <p class="text-ink/60 text-lg">La mayoría de hogares y negocios pagan más de lo que deberían simplemente porque nadie les ha explicado su factura con claridad.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="reveal p-7 rounded-2xl border border-ink/10 hover:border-ember/50 hover:shadow-xl transition">
+        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-lg mb-2">Facturas indescifrables</h3>
+        <p class="text-ink/60 text-sm">Conceptos, peajes y tarifas que nadie explica en un lenguaje que entiendas.</p>
+      </div>
+      <div class="reveal p-7 rounded-2xl border border-ink/10 hover:border-ember/50 hover:shadow-xl transition">
+        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-lg mb-2">Precios que no dejan de subir</h3>
+        <p class="text-ink/60 text-sm">Cada año la factura sube y nunca sabes si estás pagando de más.</p>
+      </div>
+      <div class="reveal p-7 rounded-2xl border border-ink/10 hover:border-ember/50 hover:shadow-xl transition">
+        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-lg mb-2">Sin tiempo para comparar</h3>
+        <p class="text-ink/60 text-sm">Comparar tarifas y compañías es lento y confuso. Nadie tiene tiempo para eso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIÓN + CALCULADORA -->
+<section class="bg-ink2 text-white py-24 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <span class="text-ember font-semibold text-sm tracking-wide uppercase">Nuestra solución</span>
+      <h2 class="font-heading font-bold text-3xl md:text-4xl mt-2 mb-5">Hacemos el trabajo difícil por ti</h2>
+      <p class="text-white/70 mb-6">Realizamos una revisión energética completa: analizamos tu consumo real, tu factura actual y el mercado disponible, para decirte con datos concretos si puedes ahorrar — y cuánto.</p>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><svg class="text-leaf flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span class="text-white/80">Estudio gratuito de tu factura de luz y/o gas</span></li>
+        <li class="flex gap-3"><svg class="text-leaf flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span class="text-white/80">Comparativa objetiva entre tarifas y compañías</span></li>
+        <li class="flex gap-3"><svg class="text-leaf flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span class="text-white/80">Recomendación clara: solo cambias si te conviene</span></li>
+      </ul>
+    </div>
+
+    <div class="reveal bg-white text-ink rounded-2xl p-8 shadow-2xl">
+      <h3 class="font-heading font-semibold text-lg mb-1">Calcula tu ahorro estimado</h3>
+      <p class="text-ink/50 text-sm mb-6">Desliza según lo que pagas al mes ahora</p>
+      <input id="billRange" type="range" min="30" max="300" value="90" class="w-full accent-ember mb-4">
+      <div class="flex justify-between text-sm text-ink/50 mb-6">
+        <span>30€</span><span id="billValue" class="font-semibold text-ink">90€ / mes</span><span>300€</span>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-ink/5 rounded-xl p-4 text-center">
+          <p class="text-xs text-ink/50 mb-1">Ahorro mensual est.</p>
+          <p id="saveMonth" class="font-heading font-bold text-2xl text-leaf">19,80€</p>
+        </div>
+        <div class="bg-ink/5 rounded-xl p-4 text-center">
+          <p class="text-xs text-ink/50 mb-1">Ahorro anual est.</p>
+          <p id="saveYear" class="font-heading font-bold text-2xl text-leaf">237,60€</p>
+        </div>
+      </div>
+      <p class="text-[11px] text-ink/40 mt-4">*Estimación orientativa basada en un ahorro medio del 22% detectado en revisiones previas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section id="beneficios" class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl mb-14 reveal">
+      <span class="text-ember font-semibold text-sm tracking-wide uppercase">Beneficios</span>
+      <h2 class="font-heading font-bold text-3xl md:text-4xl mt-2 mb-4">Por qué confiar en nosotros</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="reveal group p-7 rounded-2xl bg-ink/[0.02] hover:bg-ink hover:text-white transition-all duration-300">
+        <svg class="mb-4 text-ember" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+        <h3 class="font-heading font-semibold mb-2">Revisión 100% gratuita</h3>
+        <p class="text-sm opacity-70">Sin coste, sin compromiso de contratación posterior.</p>
+      </div>
+      <div class="reveal group p-7 rounded-2xl bg-ink/[0.02] hover:bg-ink hover:text-white transition-all duration-300">
+        <svg class="mb-4 text-ember" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18 9l-5 5-4-4-4 4"/></svg>
+        <h3 class="font-heading font-semibold mb-2">Ahorro medio del 22%</h3>
+        <p class="text-sm opacity-70">Basado en revisiones reales realizadas en los últimos 12 meses.</p>
+      </div>
+      <div class="reveal group p-7 rounded-2xl bg-ink/[0.02] hover:bg-ink hover:text-white transition-all duration-300">
+        <svg class="mb-4 text-ember" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3 class="font-heading font-semibold mb-2">Sin permanencia forzada</h3>
+        <p class="text-sm opacity-70">Solo te recomendamos cambiar si realmente te conviene.</p>
+      </div>
+      <div class="reveal group p-7 rounded-2xl bg-ink/[0.02] hover:bg-ink hover:text-white transition-all duration-300">
+        <svg class="mb-4 text-ember" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3 class="font-heading font-semibold mb-2">Respuesta en 48h</h3>
+        <p class="text-sm opacity-70">Tu revisión inicial lista en menos de dos días laborables.</p>
+      </div>
+      <div class="reveal group p-7 rounded-2xl bg-ink/[0.02] hover:bg-ink hover:text-white transition-all duration-300">
+        <svg class="mb-4 text-ember" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M12.5 3.5a4 4 0 110 8 4 4 0 010-8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <h3 class="font-heading font-semibold mb-2">Asesor dedicado</h3>
+        <p class="text-sm opacity-70">Una persona real que te acompaña en todo el proceso.</p>
+      </div>
+      <div class="reveal group p-7 rounded-2xl bg-ink/[0.02] hover:bg-ink hover:text-white transition-all duration-300">
+        <svg class="mb-4 text-ember" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <h3 class="font-heading font-semibold mb-2">Comparativa transparente</h3>
+        <p class="text-sm opacity-70">Vemos el mercado libre y regulado para elegir sin sesgos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="proceso" class="bg-ink text-white py-24 diag-top relative">
+  <div class="max-w-7xl mx-auto px-6 pt-6">
+    <div class="max-w-2xl mb-16 reveal">
+      <span class="text-ember font-semibold text-sm tracking-wide uppercase">Proceso</span>
+      <h2 class="font-heading font-bold text-3xl md:text-4xl mt-2 mb-4">Cómo funciona, en 3 pasos</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 relative">
+      <div class="hidden md:block absolute top-8 left-[16%] right-[16%] h-px bg-white/15"></div>
+      <div class="reveal relative text-center md:text-left">
+        <div class="w-16 h-16 rounded-full bg-ember text-ink font-heading font-bold text-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">1</div>
+        <h3 class="font-heading font-semibold text-lg mb-2">Analizamos tu caso</h3>
+        <p class="text-white/60 text-sm">Nos cuentas tu situación actual: tipo de vivienda o negocio, compañía y hábitos de consumo.</p>
+      </div>
+      <div class="reveal relative text-center md:text-left">
+        <div class="w-16 h-16 rounded-full bg-ember text-ink font-heading font-bold text-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">2</div>
+        <h3 class="font-heading font-semibold text-lg mb-2">Revisamos factura y consumo</h3>
+        <p class="text-white/60 text-sm">Estudiamos tus datos reales para detectar dónde estás pagando de más.</p>
+      </div>
+      <div class="reveal relative text-center md:text-left">
+        <div class="w-16 h-16 rounded-full bg-ember text-ink font-heading font-bold text-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">3</div>
+        <h3 class="font-heading font-semibold text-lg mb-2">Proponemos una solución</h3>
+        <p class="text-white/60 text-sm">Te presentamos la mejor opción, sin presión ni obligación de contratar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-white py-24">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="text-ember font-semibold text-sm tracking-wide uppercase">Dudas frecuentes</span>
+      <h2 class="font-heading font-bold text-3xl md:text-4xl mt-2">Preguntas frecuentes</h2>
+    </div>
+    <div class="space-y-3" id="faqList">
+      <div class="reveal faq-item border border-ink/10 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left px-6 py-4 font-medium">
+          ¿Realmente es gratis la revisión?
+          <svg class="faq-icon transition-transform flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-panel px-6 text-ink/60 text-sm max-h-0 overflow-hidden transition-all duration-300">
+          <p class="pb-4">Sí, completamente gratuita y sin ningún compromiso de contratación posterior.</p>
+        </div>
+      </div>
+      <div class="reveal faq-item border border-ink/10 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left px-6 py-4 font-medium">
+          ¿Tengo que cambiar de compañía?
+          <svg class="faq-icon transition-transform flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-panel px-6 text-ink/60 text-sm max-h-0 overflow-hidden transition-all duration-300">
+          <p class="pb-4">No necesariamente. Solo te lo recomendamos si supone un ahorro real y demostrable.</p>
+        </div>
+      </div>
+      <div class="reveal faq-item border border-ink/10 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left px-6 py-4 font-medium">
+          ¿Cuánto tarda el proceso?
+          <svg class="faq-icon transition-transform flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-panel px-6 text-ink/60 text-sm max-h-0 overflow-hidden transition-all duration-300">
+          <p class="pb-4">La revisión inicial suele estar lista en menos de 48 horas laborables.</p>
+        </div>
+      </div>
+      <div class="reveal faq-item border border-ink/10 rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left px-6 py-4 font-medium">
+          ¿Qué necesito para empezar?
+          <svg class="faq-icon transition-transform flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-panel px-6 text-ink/60 text-sm max-h-0 overflow-hidden transition-all duration-300">
+          <p class="pb-4">Solo necesitas tu última factura de luz o gas. Nosotros nos encargamos del resto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO / CONTACTO -->
+<section id="contacto" class="bg-ink2 text-white py-24 relative overflow-hidden">
+  <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-leaf/10 rounded-full blur-3xl"></div>
+  <div class="max-w-5xl mx-auto px-6 relative">
+    <div class="text-center max-w-xl mx-auto mb-12 reveal">
+      <span class="text-ember font-semibold text-sm tracking-wide uppercase">Solicita tu consulta</span>
+      <h2 class="font-heading font-bold text-3xl md:text-4xl mt-2 mb-4">Empecemos con tu revisión gratuita</h2>
+      <p class="text-white/60">Rellena el formulario y un asesor se pondrá en contacto contigo en menos de 48h.</p>
+    </div>
+
+    <form id="contactForm" class="reveal bg-white text-ink rounded-2xl p-8 md:p-10 shadow-2xl grid md:grid-cols-2 gap-5" novalidate>
+      <div>
+        <label class="block text-sm font-medium mb-1.5">Nombre completo *</label>
+        <input type="text" name="nombre" required class="w-full border border-ink/15 rounded-lg px-4 py-3 text-sm">
+        <p class="err text-red-500 text-xs mt-1 hidden">Introduce tu nombre.</p>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1.5">Teléfono *</label>
+        <input type="tel" name="telefono" required pattern="[0-9]{9}" class="w-full border border-ink/15 rounded-lg px-4 py-3 text-sm" placeholder="600 000 000">
+        <p class="err text-red-500 text-xs mt-1 hidden">Introduce un teléfono válido (9 dígitos).</p>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1.5">Email *</label>
+        <input type="email" name="email" required class="w-full border border-ink/15 rounded-lg px-4 py-3 text-sm" placeholder="tunombre@email.com">
+        <p class="err text-red-500 text-xs mt-1 hidden">Introduce un email válido.</p>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1.5">Tipo de cliente *</label>
+        <select name="tipoCliente" required class="w-full border border-ink/15 rounded-lg px-4 py-3 text-sm bg-white">
+          <option value="">Selecciona una opción</option>
+          <option value="particular">Particular / Hogar</option>
+          <option value="autonomo">Autónomo</option>
+          <option value="pyme">Pyme / Empresa</option>
+          <option value="comunidad">Comunidad de propietarios</option>
+        </select>
+        <p class="err text-red-500 text-xs mt-1 hidden">Selecciona un tipo de cliente.</p>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-sm font-medium mb-1.5">Mensaje (opcional)</label>
+        <textarea name="mensaje" rows="4" class="w-full border border-ink/15 rounded-lg px-4 py-3 text-sm" placeholder="Cuéntanos brevemente tu situación actual..."></textarea>
+      </div>
+      <div class="md:col-span-2">
+        <button type="submit" class="w-full bg-ember hover:bg-emberd text-ink font-semibold py-3.5 rounded-lg transition flex items-center justify-center gap-2">
+          Solicitar mi consulta gratuita
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p class="text-[11px] text-ink/40 mt-3 text-center">Al enviar aceptas nuestra política de privacidad simulada. No compartimos tus datos con terceros.</p>
+      </div>
+    </form>
+
+    <div id="successMsg" class="hidden bg-leaf/10 border border-leaf/30 text-leaf rounded-2xl p-8 text-center mt-6">
+      <svg class="mx-auto mb-3" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      <h3 class="font-heading font-semibold text-lg mb-1">¡Solicitud enviada!</h3>
+      <p class="text-sm opacity-80">Un asesor de EnerVolt se pondrá en contacto contigo muy pronto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-white/60 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <a href="#inicio" class="flex items-center gap-2 font-heading font-bold text-xl text-white mb-3">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="#F5A524"/></svg>
+          Ener<span class="text-ember">Volt</span>
+        </a>
+        <p class="text-sm max-w-sm">Asesoría energética independiente para hogares y empresas en toda España. Ayudamos a ahorrar en factura de luz y gas sin letra pequeña.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-3">Enlaces</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#problema" class="hover:text-ember transition">El problema</a></li>
+          <li><a href="#beneficios" class="hover:text-ember transition">Beneficios</a></li>
+          <li><a href="#proceso" class="hover:text-ember transition">Cómo funciona</a></li>
+          <li><a href="#contacto" class="hover:text-ember transition">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-3">Legal</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-ember transition">Política de privacidad</a></li>
+          <li><a href="#" class="hover:text-ember transition">Términos y condiciones</a></li>
+          <li><a href="#" class="hover:text-ember transition">Política de cookies</a></li>
+          <li><a href="#" class="hover:text-ember transition">Aviso legal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs">
+      <p>© 2026 EnerVolt Asesoría Energética S.L. · CIF B-00000000 · Todos los derechos reservados.</p>
+      <p>Proyecto de práctica — datos y contenidos simulados con fines educativos.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
