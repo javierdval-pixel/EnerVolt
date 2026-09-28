@@ -54,3 +54,84 @@ input:focus, select:focus, textarea:focus {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(1.15); }
 }
+
+/* ===== Sol animado (Hero) ===== */
+.sun-core {
+  animation: sunPulse 2.4s ease-in-out infinite;
+  transform-origin: 360px 72px;
+}
+
+.sun-halo {
+  animation: haloPulse 2.4s ease-in-out infinite;
+  transform-origin: 360px 72px;
+}
+
+@keyframes sunPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes haloPulse {
+  0%, 100% { opacity: 0.22; r: 18px; }
+  50% { opacity: 0.35; r: 21px; }
+}
+
+.sun-rays line {
+  animation: rayFade 2.4s ease-in-out infinite;
+}
+.sun-rays line:nth-child(2) { animation-delay: 0.15s; }
+.sun-rays line:nth-child(3) { animation-delay: 0.3s; }
+.sun-rays line:nth-child(4) { animation-delay: 0.45s; }
+.sun-rays line:nth-child(5) { animation-delay: 0.6s; }
+.sun-rays line:nth-child(6) { animation-delay: 0.75s; }
+.sun-rays line:nth-child(7) { animation-delay: 0.9s; }
+.sun-rays line:nth-child(8) { animation-delay: 1.05s; }
+
+@keyframes rayFade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ===== Panel solar (Hero) ===== */
+.panel-glint {
+  opacity: 0;
+  animation: glintSweep 3.5s ease-in-out infinite;
+}
+
+@keyframes glintSweep {
+  0%, 70% { opacity: 0; transform: translateX(0); }
+  78% { opacity: 0.7; }
+  85% { opacity: 0; transform: translateX(25px); }
+  100% { opacity: 0; transform: translateX(0); }
+}
+/* ===== Transición de color en calculadora de ahorro ===== */
+#saveMonth, #saveYear {
+  transition: color 0.25s ease;
+}
+/* ===== Transición de color en calculadora de ahorro ===== */
+#saveMonth, #saveYear {
+  transition: color 0.25s ease;
+}
+
+#solucionSection {
+  transition: background-color 0.4s ease;
+}
+/* ===== Rayos animados sol -> panel solar ===== */
+.ray {
+  animation: rayFlow 1s linear infinite;
+}
+.ray2 { animation-delay: 0.2s; }
+.ray3 { animation-delay: 0.4s; }
+
+@keyframes rayFlow {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+.panel-glint {
+  animation: glintPulse 3s ease-in-out infinite;
+}
+@keyframes glintPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
