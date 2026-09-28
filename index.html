@@ -88,46 +88,103 @@
       </div>
     </div>
 
-    <!-- Ilustración + Recibo animado -->
-    <div class="reveal relative flex justify-center pb-6 md:pb-0">
-      <svg viewBox="0 0 420 380" class="w-full max-w-md drop-shadow-2xl">
-        <ellipse cx="210" cy="350" rx="150" ry="18" fill="#000" opacity="0.25"/>
-        <rect x="70" y="150" width="220" height="170" rx="6" fill="#132339"/>
-        <polygon points="60,150 210,60 360,150" fill="#F5A524"/>
-        <rect x="95" y="90" width="130" height="10" fill="#0B1626" opacity="0.3"/>
-        <rect x="105" y="205" width="55" height="55" rx="4" fill="#0B1626"/>
-        <rect x="200" y="205" width="55" height="55" rx="4" fill="#0B1626"/>
-        <rect x="175" y="270" width="40" height="50" fill="#0B1626"/>
-        <rect x="105" y="120" width="130" height="14" fill="#12967A" rx="2"/>
-        <rect x="110" y="123" width="18" height="8" fill="#0f7a63"/>
-        <rect x="133" y="123" width="18" height="8" fill="#0f7a63"/>
-        <rect x="156" y="123" width="18" height="8" fill="#0f7a63"/>
-        <rect x="179" y="123" width="18" height="8" fill="#0f7a63"/>
-        <rect x="202" y="123" width="18" height="8" fill="#0f7a63"/>
-        <path d="M340 130 L318 170 L336 170 L312 215 L360 165 L340 165 Z" fill="#F5A524"/>
-        <circle cx="345" cy="100" r="26" fill="none" stroke="#F5A524" stroke-width="3" opacity="0.5"/>
-        <circle cx="345" cy="100" r="10" fill="#F5A524"/>
-      </svg>
+<!-- Ilustración + Recibo animado -->
+<div class="reveal relative flex justify-center pb-6 md:pb-0">
+  <svg viewBox="0 0 420 380" class="w-full max-w-md drop-shadow-2xl">
+    <defs>
+      <marker id="rayArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="#FFC24D"/>
+      </marker>
+    </defs>
 
-      <!-- Mini recibo de luz animado -->
-      <div id="receiptCard" class="receipt-card absolute bottom-2 left-2 md:-left-6 bg-white text-ink rounded-xl shadow-2xl p-4 w-48 z-10">
-        <div class="flex items-center justify-between mb-2.5">
-          <span class="text-[10px] font-bold text-ink/40 uppercase tracking-wide">Factura luz</span>
-          <svg class="pulse-bolt" width="16" height="16" viewBox="0 0 24 24" fill="#F5A524"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
-        </div>
-        <div class="space-y-1.5 text-[11px] text-ink/60 border-b border-dashed border-ink/15 pb-2.5 mb-2.5">
-          <div class="flex justify-between"><span>Potencia 4.6 kW</span><span>8,25€</span></div>
-          <div class="flex justify-between"><span>Consumo 250 kWh</span><span>37,00€</span></div>
-          <div class="flex justify-between"><span>IVA + Imp. eléc.</span><span>13,15€</span></div>
-        </div>
-        <div class="flex items-end justify-between">
-          <span class="text-[11px] text-ink/40 line-through">58,40€</span>
-          <span id="receiptTotal" class="font-heading font-bold text-leaf text-xl" data-target="45.60">0,00€</span>
-        </div>
-        <span class="block text-[10px] text-leaf font-semibold mt-1.5 bg-leaf/10 rounded-full px-2 py-0.5 text-center">-22% con EnerVolt ✓</span>
-        <p class="text-[8px] text-ink/30 mt-1.5 text-center leading-tight">*Referencia tarifa PVPC media España</p>
-      </div>
+    <!-- Sombra en el suelo -->
+    <ellipse cx="210" cy="350" rx="150" ry="18" fill="#000" opacity="0.25"/>
+
+    <!-- Cuerpo de la casa -->
+    <rect x="70" y="150" width="220" height="170" rx="6" fill="#16233A"/>
+    <rect x="250" y="150" width="40" height="170" fill="#0F1B2E" opacity="0.35"/>
+
+    <!-- Techo (con sombra en el lado izquierdo, luz viene del sol a la derecha) -->
+    <polygon points="60,150 210,60 360,150" fill="#F5A524"/>
+    <polygon points="60,150 210,60 210,150" fill="#D98B0E" opacity="0.55"/>
+    <line x1="210" y1="60" x2="210" y2="150" stroke="#FFE3A6" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Ventana izquierda -->
+    <rect x="100" y="210" width="55" height="55" rx="4" fill="#0B1626"/>
+    <line x1="127.5" y1="210" x2="127.5" y2="265" stroke="#1e3a5f" stroke-width="2"/>
+    <line x1="100" y1="237.5" x2="155" y2="237.5" stroke="#1e3a5f" stroke-width="2"/>
+    <rect x="96" y="267" width="63" height="5" rx="2" fill="#0F1B2E"/>
+
+    <!-- Ventana derecha -->
+    <rect x="205" y="210" width="55" height="55" rx="4" fill="#0B1626"/>
+    <line x1="232.5" y1="210" x2="232.5" y2="265" stroke="#1e3a5f" stroke-width="2"/>
+    <line x1="205" y1="237.5" x2="260" y2="237.5" stroke="#1e3a5f" stroke-width="2"/>
+    <rect x="201" y="267" width="63" height="5" rx="2" fill="#0F1B2E"/>
+
+    <!-- Puerta -->
+    <rect x="175" y="270" width="40" height="50" fill="#0F1B2E"/>
+    <line x1="195" y1="270" x2="195" y2="320" stroke="#1e3a5f" stroke-width="1.5"/>
+    <circle cx="205" cy="297" r="2" fill="#F5A524"/>
+
+    <!-- ===== Panel solar sobre el techo ===== -->
+    <g class="solar-panel">
+      <polygon points="235,80 320,128 310,112 228,66" fill="#16233A" stroke="#0B1626" stroke-width="1"/>
+      <line x1="248" y1="74" x2="290" y2="121" stroke="#12967A" stroke-width="1" opacity="0.55"/>
+      <line x1="262" y1="82" x2="304" y2="129" stroke="#12967A" stroke-width="1" opacity="0.55"/>
+      <line x1="276" y1="90" x2="318" y2="137" stroke="#12967A" stroke-width="1" opacity="0.55"/>
+      <line x1="230" y1="70" x2="316" y2="118" stroke="#12967A" stroke-width="1" opacity="0.55"/>
+      <line x1="238" y1="90" x2="308" y2="130" stroke="#12967A" stroke-width="1" opacity="0.55"/>
+      <polygon class="panel-glint" points="235,80 258,93 248,74" fill="#ffffff" opacity="0.5"/>
+    </g>
+
+    <!-- ===== Rayos animados: Sol -> Panel ===== -->
+    <g class="ray-flow" stroke="#FFC24D" stroke-width="2.5" stroke-linecap="round" fill="none" marker-end="url(#rayArrow)">
+      <line x1="345" y1="90" x2="285" y2="105" stroke-dasharray="6 6" class="ray ray1"/>
+      <line x1="352" y1="105" x2="290" y2="118" stroke-dasharray="6 6" class="ray ray2"/>
+      <line x1="358" y1="120" x2="298" y2="132" stroke-dasharray="6 6" class="ray ray3"/>
+    </g>
+
+    <!-- ===== Sol con halo, núcleo y rayos animados ===== -->
+    <circle cx="360" cy="72" r="26" fill="#F5A524" opacity="0.12"/>
+    <circle cx="360" cy="72" r="18" fill="#F5A524" opacity="0.22" class="sun-halo"/>
+
+    <g class="sun-rays" stroke="#F5A524" stroke-width="3" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" from="0 360 72" to="360 360 72" dur="12s" repeatCount="indefinite"/>
+      <line x1="360" y1="52" x2="360" y2="40"/>
+      <line x1="360" y1="52" x2="360" y2="40" transform="rotate(45 360 72)"/>
+      <line x1="360" y1="52" x2="360" y2="40" transform="rotate(90 360 72)"/>
+      <line x1="360" y1="52" x2="360" y2="40" transform="rotate(135 360 72)"/>
+      <line x1="360" y1="52" x2="360" y2="40" transform="rotate(180 360 72)"/>
+      <line x1="360" y1="52" x2="360" y2="40" transform="rotate(225 360 72)"/>
+      <line x1="360" y1="52" x2="360" y2="40" transform="rotate(270 360 72)"/>
+      <line x1="360" y1="52" x2="360" y2="40" transform="rotate(315 360 72)"/>
+    </g>
+
+    <circle cx="360" cy="72" r="13" fill="#F5A524" class="sun-core"/>
+    <circle cx="360" cy="72" r="13" fill="none" stroke="#FFD98C" stroke-width="1.5" opacity="0.6"/>
+  </svg>
+
+  <!-- Mini recibo de luz animado -->
+  <div id="receiptCard" class="receipt-card absolute bottom-2 left-2 md:-left-6 bg-white text-ink rounded-xl shadow-2xl p-4 w-48 z-10">
+    <div class="flex items-center justify-between mb-2.5">
+      <span class="text-[10px] font-bold text-ink/40 uppercase tracking-wide">Factura luz</span>
+      <svg class="pulse-bolt" width="16" height="16" viewBox="0 0 24 24" fill="#F5A524"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
     </div>
+    <div class="space-y-1.5 text-[11px] text-ink/60 border-b border-dashed border-ink/15 pb-2.5 mb-2.5">
+      <div class="flex justify-between"><span>Potencia 4.6 kW</span><span>8,25€</span></div>
+      <div class="flex justify-between"><span>Consumo 250 kWh</span><span>37,00€</span></div>
+      <div class="flex justify-between"><span>IVA + Imp. eléc.</span><span>13,15€</span></div>
+    </div>
+    <div class="flex items-end justify-between">
+      <span class="text-[11px] text-ink/40 line-through">58,40€</span>
+      <span id="receiptTotal" class="font-heading font-bold text-leaf text-xl" data-target="45.60">0,00€</span>
+    </div>
+    <span class="block text-[10px] text-leaf font-semibold mt-1.5 bg-leaf/10 rounded-full px-2 py-0.5 text-center">-22% con EnerVolt ✓</span>
+    <p class="text-[8px] text-ink/30 mt-1.5 text-center leading-tight">*Referencia tarifa PVPC media España</p>
+  </div>
+</div>
+
+
   </div>
 </section>
 
@@ -186,16 +243,19 @@
       <div class="flex justify-between text-sm text-ink/50 mb-6">
         <span>30€</span><span id="billValue" class="font-semibold text-ink">90€ / mes</span><span>300€</span>
       </div>
+
       <div class="grid grid-cols-2 gap-4">
-        <div class="bg-ink/5 rounded-xl p-4 text-center">
+        <div id="saveMonthBox" class="bg-ink/5 rounded-xl p-4 text-center">
           <p class="text-xs text-ink/50 mb-1">Ahorro mensual est.</p>
           <p id="saveMonth" class="font-heading font-bold text-2xl text-leaf">19,80€</p>
         </div>
-        <div class="bg-ink/5 rounded-xl p-4 text-center">
+        <div id="saveYearBox" class="bg-ink/5 rounded-xl p-4 text-center">
           <p class="text-xs text-ink/50 mb-1">Ahorro anual est.</p>
           <p id="saveYear" class="font-heading font-bold text-2xl text-leaf">237,60€</p>
         </div>
       </div>
+
+
       <p class="text-[11px] text-ink/40 mt-4">*Estimación orientativa basada en un ahorro medio del 22% detectado en revisiones previas.</p>
     </div>
   </div>
@@ -413,6 +473,7 @@
     </div>
   </div>
 </footer>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>
