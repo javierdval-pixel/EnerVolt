@@ -80,19 +80,51 @@ const billRange = document.getElementById('billRange');
 const billValue = document.getElementById('billValue');
 const saveMonth = document.getElementById('saveMonth');
 const saveYear = document.getElementById('saveYear');
+const solucionSection = document.getElementById('solucionSection');
 const RATE = 0.22;
+
+// Colores para el texto de ahorro (verde oscuro -> verde claro)
+const TEXT_START = { r: 15, g: 118, b: 90 };
+const TEXT_END   = { r: 134, g: 239, b: 172 };
+
+// Colores para el fondo de TODA la sección (azul oscuro -> verde oscuro)
+const SECTION_START = { r: 18, g: 34, b: 54 };  // #122236 (ink2)
+const SECTION_END   = { r: 12, g: 60, b: 46 };  // verde oscuro
+
+function lerpColor(start, end, t) {
+  const r = Math.round(start.r + (end.r - start.r) * t);
+  const g = Math.round(start.g + (end.g - start.g) * t);
+  const b = Math.round(start.b + (end.b - start.b) * t);
+  return `rgb(${r}, ${g}, ${b})`;
+}
 
 function updateCalc() {
   const bill = parseInt(billRange.value, 10);
+  const min = parseInt(billRange.min, 10);
+  const max = parseInt(billRange.max, 10);
+  const percent = (bill - min) / (max - min);
+
   const monthly = bill * RATE;
   billValue.textContent = bill + '€ / mes';
   saveMonth.textContent = monthly.toFixed(2).replace('.', ',') + '€';
   saveYear.textContent = (monthly * 12).toFixed(2).replace('.', ',') + '€';
+
+  // Color del texto de ahorro
+  const textColor = lerpColor(TEXT_START, TEXT_END, percent);
+  saveMonth.style.color = textColor;
+  saveYear.style.color = textColor;
+
+  // Color de fondo de toda la sección
+  if (solucionSection) {
+    solucionSection.style.backgroundColor = lerpColor(SECTION_START, SECTION_END, percent);
+  }
 }
+
 if (billRange) {
   billRange.addEventListener('input', updateCalc);
   updateCalc();
 }
+
 
 // ===== FAQ accordion =====
 document.querySelectorAll('.faq-btn').forEach(btn => {
